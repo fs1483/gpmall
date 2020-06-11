@@ -23,6 +23,7 @@ spring:
     address: redis.gpmall.com:6379
 #    address: redis4gpmall.redis.rds.aliyuncs.com:6379
 #    password: redis4GPMALL
+    password: redis123?
     timeout: 3000
     database: 0
     pool:

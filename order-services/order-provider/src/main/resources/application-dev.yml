@@ -21,6 +21,7 @@ spring:
     useGlobalDataSourceStat: true
   redisson:
       address: redis.gpmall.com:6379
+      password: redis123?
       timeout: 3000
       database: 0
       pool:
@@ -29,7 +30,7 @@ spring:
         max-wait: 3000
         min-idle: 4
   rabbitmq:
-    host: 127.0.0.1
+    host: 120.79.232.219
     port: 5672
     username: rabbitmq
     password: 123456

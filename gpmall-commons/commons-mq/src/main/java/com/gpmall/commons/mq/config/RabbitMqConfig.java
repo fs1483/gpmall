@@ -5,6 +5,7 @@ import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.FanoutExchange;
 import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
@@ -52,11 +53,21 @@ public class RabbitMqConfig {
 		return new Jackson2JsonMessageConverter();
 	}
 
+//	@Bean
+//	public ConnectionFactory connectionFactory() {
+//		CachingConnectionFactory connectionFactory = new CachingConnectionFactory("120.79.232.219", 5672);
+//		connectionFactory.setUsername("rabbitmq");
+//		connectionFactory.setPassword("123456");
+//		return connectionFactory;
+//
+//	}
+
 	//消息发送器
 	@Bean
 	RabbitTemplate rabbitTemplate(final ConnectionFactory connectionFactory){
 		final RabbitTemplate rabbitTemplate=new RabbitTemplate(connectionFactory);
 		rabbitTemplate.setMessageConverter(jsonMessageConverter());
 		return rabbitTemplate;
+//		return new RabbitTemplate(connectionFactory);
 	}
 }
